@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --dark-bg: #0a0a0a;
+  --dark-card: #141414;
+}
+
+.dark {
+  background-color: var(--dark-bg);
+}
+
+.dark [class*='bg-zinc-800'] {
+  background-color: var(--dark-card);
+}
+
+.dark .project-card {
+  background-color: var(--dark-card);
+  border-color: rgba(255, 255, 255, 0.03);
+}
+
+/* Animasyonlar */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slide-up {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fade-in 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.6s ease-out forwards;
+  }
+}
+
+/* Hover animasyonları */
+.hover-scale {
+  @apply transition-transform duration-300 hover:scale-105;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+body {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Özel Scroll Bar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-100 dark:bg-zinc-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-700 rounded-full;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-zinc-600;
+}
+
+/* Mouse Seçim Rengi */
+::selection {
+  @apply bg-zinc-200 dark:bg-zinc-700;
+}
+
+/* Genel Sayfa Animasyonları */
+.page-transition {
+  animation: pageLoad 0.6s ease-out;
+}
+
+@keyframes pageLoad {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Glass Effect */
+.glass-effect {
+  @apply backdrop-blur-md bg-white/70 dark:bg-zinc-900/70;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Özel Cursor */
+.custom-cursor {
+  @apply fixed w-4 h-4 pointer-events-none z-50 rounded-full transition-transform duration-200 ease-out;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(1px);
+  transform: translate(-50%, -50%);
+}
+
+/* Gradient Arka Plan */
+.gradient-bg {
+  @apply bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900;
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+}
+
+/* Kart Hover Efektleri */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-lg hover:shadow-zinc-200/10 dark:hover:shadow-zinc-800/10;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+}
+
+/* Paralaks Efekt */
+.parallax {
+  @apply transition-transform duration-200 ease-out;
+  transform: translateZ(0);
+  will-change: transform;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
