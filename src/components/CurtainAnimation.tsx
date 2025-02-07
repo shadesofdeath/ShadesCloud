@@ -14,8 +14,8 @@ export function CurtainAnimation() {
 
   return (
     <div className="fixed inset-0 z-50 flex">
-      <div className="w-1/2 bg-black animate-curtain-left"></div>
-      <div className="w-1/2 bg-black animate-curtain-right"></div>
+      <div className="w-1/2 animate-curtain-left" style={{ backgroundColor: '#1a1a1a' }}></div>
+      <div className="w-1/2 animate-curtain-right" style={{ backgroundColor: '#1a1a1a' }}></div>
     </div>
   );
 }
