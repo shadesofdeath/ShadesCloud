@@ -2,6 +2,28 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    title: 'Net Blocker',
+    description: 'İnternetinizi kullanan uygulamaların internet kullanımını bloklayın.',
+    tech: [
+      { name: 'C++' },
+    ],
+    version: '1.0',
+    size: '208 KB',
+    features: [
+      'Hızlı',
+      'Basit kullanıcı arayüzü, gereksiz şeyler yok, sadece çalışıyor.'
+    ],
+    technicalDetails: {
+      platform: 'Windows',
+      requirements: 'Windows 10 ve üzeri',
+      language: 'C++',
+      ram: 'Ölü sistemde gene çalışır',
+      cpu: 'Düşük CPU kullanımı'
+    },
+    download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/NetBlocker/NetBlocker.exe',
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/NetBlocker/SourceCode.zip'
+  },
+  {
     title: 'BuzzHeavier Uplaoder',
     description: 'Hız sınırlaması yok, dosya boyut sınırı yok! İstediğin kadar dosya upload et.',
     tech: [
