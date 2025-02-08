@@ -20,10 +20,9 @@ export const ProjectCard = ({ project }) => {
       {isOpen && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50" onClick={() => setIsOpen(false)}>
           <div 
-            className="relative bg-white dark:bg-zinc-800 rounded-lg p-6 max-w-2xl w-full mx-4 max-h-[80vh] overflow-y-auto animate-slideUp" 
+            className="relative bg-white dark:bg-zinc-800 rounded-lg py-12 px-6 max-w-5xl w-full mx-4 max-h-[80vh] overflow-y-auto animate-slideUp [&::-webkit-scrollbar-corner]:bg-transparent" 
             onClick={e => e.stopPropagation()}
           >
-            {/* Close butonu artık sağ üst köşede */}
             <button
               onClick={() => setIsOpen(false)}
               className="absolute top-4 right-4 p-2 hover:bg-zinc-100 dark:hover:bg-zinc-700 rounded-full"
@@ -32,11 +31,13 @@ export const ProjectCard = ({ project }) => {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
               </svg>
             </button>
-            
-            <h2 className="text-xl font-bold mb-4">{project.title}</h2>
-            <p className="text-zinc-600 dark:text-zinc-300 mb-6">{project.description}</p>
 
-            <div className="space-y-6">
+            <div className="space-y-8">
+              <div>
+                <h2 className="text-xl font-bold mb-4">{project.title}</h2>
+                <p className="text-zinc-600 dark:text-zinc-300 mb-6">{project.description}</p>
+              </div>
+
               <div>
                 <h3 className="font-semibold mb-3">Özellikler</h3>
                 <ul className="space-y-2">
@@ -49,7 +50,7 @@ export const ProjectCard = ({ project }) => {
                 </ul>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+              <div className="grid grid-cols-1 gap-4 text-sm">
                 <div>
                   <h3 className="font-semibold mb-2">Teknik Detaylar</h3>
                   <div className="space-y-1 text-zinc-600 dark:text-zinc-300">

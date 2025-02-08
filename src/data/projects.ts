@@ -2,6 +2,29 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    title: 'Edge Blocker',
+    description: 'Microsoft Edge ve Webview engellemenize olanak tanıyan basit bir uygulama.',
+    tech: [
+      { name: 'C++' },
+    ],
+    version: '1.0',
+    size: '212 KB',
+    features: [
+      'Hızlı',
+      'Basit kullanıcı arayüzü.',
+      'Komut satırı desteği',
+    ],
+    technicalDetails: {
+      platform: 'Windows',
+      requirements: 'Windows 10 ve üzeri',
+      language: 'C++',
+      ram: 'Ölü sistemde gene çalışır',
+      cpu: 'Düşük CPU kullanımı'
+    },
+    download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/EdgeBlocker/EdgeBlocker.exe',
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/EdgeBlocker/SourceCode.zip',
+  },
+  {
     title: 'Net Blocker',
     description: 'İnternetinizi kullanan uygulamaların internet kullanımını bloklayın.',
     tech: [
@@ -21,7 +44,7 @@ export const projects: Project[] = [
       cpu: 'Düşük CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/NetBlocker/NetBlocker.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/NetBlocker/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/NetBlocker/SourceCode.zip',
   },
   {
     title: 'BuzzHeavier Uplaoder',
@@ -46,7 +69,7 @@ export const projects: Project[] = [
       cpu: 'Düşük CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/BuzzHeavierUplaoder/BuzzHeavierUplaoder.zip',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/BuzzHeavierUplaoder/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/BuzzHeavierUplaoder/SourceCode.zip',
   },
   {
     title: 'Taskbar Volume Control',
@@ -68,7 +91,7 @@ export const projects: Project[] = [
       cpu: 'Düşük CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/TaskbarVolumeControl/taskbar_volume_control.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/TaskbarVolumeControl/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/TaskbarVolumeControl/SourceCode.zip',
   },
   {
     title: 'SnapMaster',
@@ -94,7 +117,7 @@ export const projects: Project[] = [
       cpu: 'Düşük CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SnapMaster/SnapMaster.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SnapMaster/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SnapMaster/SourceCode.zip',
   },
   {
     title: 'SystemNetTry',
@@ -120,7 +143,7 @@ export const projects: Project[] = [
       cpu: 'Düşük CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SystemNetTray/SystemNetTry.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SystemNetTray/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/SystemNetTray/SourceCode.zip',
   },
   {
     title: 'AutoFocusWindow',
@@ -145,7 +168,7 @@ export const projects: Project[] = [
       cpu: 'Minimal CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/AutoFocusWindow/AutoFocusWindow.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/AutoFocusWindow/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/AutoFocusWindow/SourceCode.zip',
   },
   {
     title: 'KeyLockIndicator',
@@ -171,7 +194,7 @@ export const projects: Project[] = [
       cpu: 'Minimal CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/KeyLockIndicator/KeyLockIndicator.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/KeyLockIndicator/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/KeyLockIndicator/SourceCode.zip',
   },
   {
     title: 'Günün Sözü',
@@ -196,7 +219,7 @@ export const projects: Project[] = [
       cpu: 'Minimal CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/G%C3%BCn%C3%BCnS%C3%B6z%C3%BC/G%C3%BCn%C3%BCnS%C3%B6z%C3%BC.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/G%C3%BCn%C3%BCnS%C3%B6z%C3%BC/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/G%C3%BCn%C3%BCnS%C3%B6z%C3%BC/SourceCode.zip',
   },
   {
     title: 'Power Plan Switcher',
@@ -221,7 +244,7 @@ export const projects: Project[] = [
       cpu: 'Minimal CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/PowerPlanSwitcher/power_plan_switcher.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/PowerPlanSwitcher/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/PowerPlanSwitcher/SourceCode.zip',
   },
   {
     title: 'BoostMyPc',
@@ -247,7 +270,7 @@ export const projects: Project[] = [
       cpu: 'Orta düzey CPU kullanımı'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/OneClickBoost/OneClickBoost.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/OneClickBoost/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/OneClickBoost/SourceCode.zip',
   },
   {
     title: 'WeatherTray',
@@ -274,6 +297,6 @@ export const projects: Project[] = [
       internet: 'İnternet bağlantısı gereklidir'
     },
     download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/WeatherTray/weather_tray.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/WeatherTray/SourceCode.zip'
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/WeatherTray/SourceCode.zip',
   }
 ];
