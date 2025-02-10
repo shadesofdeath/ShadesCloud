@@ -2,6 +2,29 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
+    title: 'Classic Context',
+    description: 'Windows 11 de eski bağlam menüü ve modern bağlam menüsü arası geçiş yapmanızı sağlayan basit bir uygulama.',
+    tech: [
+      { name: 'C++' },
+    ],
+    version: '1.0',
+    size: '237 KB',
+    features: [
+      'Hızlı',
+      'Basit kullanıcı arayüzü.',
+      'Komut satırı desteği',
+    ],
+    technicalDetails: {
+      platform: 'Windows',
+      requirements: 'Windows 10 ve üzeri',
+      language: 'C++',
+      ram: 'Ölü sistemde gene çalışır',
+      cpu: 'Düşük CPU kullanımı'
+    },
+    download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/ClassicContext/ClassicContext.exe',
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/ClassicContext/SourceCode.zip',
+  },
+  {
     title: 'Update Blocker',
     description: 'Windows Update engellemenize olanak tanıyan basit bir uygulama.',
     tech: [
