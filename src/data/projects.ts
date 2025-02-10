@@ -2,13 +2,13 @@ import type { Project } from '../types';
 
 export const projects: Project[] = [
   {
-    title: 'Edge Blocker',
-    description: 'Microsoft Edge ve Webview engellemenize olanak tanıyan basit bir uygulama.',
+    title: 'Update Blocker',
+    description: 'Windows Update engellemenize olanak tanıyan basit bir uygulama.',
     tech: [
       { name: 'C++' },
     ],
     version: '1.0',
-    size: '212 KB',
+    size: '253 KB',
     features: [
       'Hızlı',
       'Basit kullanıcı arayüzü.',
@@ -21,8 +21,8 @@ export const projects: Project[] = [
       ram: 'Ölü sistemde gene çalışır',
       cpu: 'Düşük CPU kullanımı'
     },
-    download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/EdgeBlocker/EdgeBlocker.exe',
-    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/EdgeBlocker/SourceCode.zip',
+    download: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/UpdateBlocker/UpdateBlocker.exe',
+    sourceCode: 'https://github.com/shadesofdeath/shadesofdeath/raw/refs/heads/main/downloads/UpdateBlocker/SourceCode.zip',
   },
   {
     title: 'Net Blocker',
