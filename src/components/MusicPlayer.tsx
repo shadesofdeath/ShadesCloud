@@ -49,8 +49,10 @@ export function MusicPlayer() {
     if (!audio) return;
 
     const handleTimeUpdate = () => {
-      setProgress(audio.currentTime);
-      setDuration(audio.duration);
+      if (!isNaN(audio.duration)) {
+        setProgress(audio.currentTime);
+        setDuration(audio.duration);
+      }
     };
 
     const handleEnded = () => {
@@ -62,19 +64,19 @@ export function MusicPlayer() {
       }
     };
 
-    const handleCanPlay = () => {
-      audio.play().then(() => setIsPlaying(true)).catch(() => setIsPlaying(false));
+    const handleLoadedMetadata = () => {
+      setDuration(audio.duration);
     };
 
     audio.addEventListener('timeupdate', handleTimeUpdate);
     audio.addEventListener('ended', handleEnded);
-    audio.addEventListener('canplay', handleCanPlay);
+    audio.addEventListener('loadedmetadata', handleLoadedMetadata);
     audio.volume = volume;
 
     return () => {
       audio.removeEventListener('timeupdate', handleTimeUpdate);
       audio.removeEventListener('ended', handleEnded);
-      audio.removeEventListener('canplay', handleCanPlay);
+      audio.removeEventListener('loadedmetadata', handleLoadedMetadata);
     };
   }, [currentTrack, isLoop, volume]);
 
