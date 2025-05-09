@@ -1,72 +1,89 @@
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import { CurtainAnimation } from './components/CurtainAnimation';
-import { Terminal, Github, Coffee, ChevronRight } from 'lucide-react';
+import { Terminal, Github, Coffee, Search } from 'lucide-react';
 import { ProjectCard } from './components/ProjectCard';
 import { ThemeToggle } from './components/ThemeToggle';
 import { MusicPlayer } from './components/MusicPlayer';
+import { ProjectDetail } from './components/ProjectDetail';
 import { projects } from './data/projects';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function App() {
-  // Rastgele önerilen projeler için
-  const getRandomProjects = (excludeTitle: string, count: number = 2) => {
-    const filteredProjects = projects.filter(p => p.title !== excludeTitle);
-    const shuffled = [...filteredProjects].sort(() => 0.5 - Math.random());
-    return shuffled.slice(0, count);
-  };
+  const [searchQuery, setSearchQuery] = useState('');
+  
+  const filteredProjects = projects.filter(project => 
+    project.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    project.tech.some(tech => tech.name.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
 
   return (
-    <>
+    <Router>
       <CurtainAnimation />
       <div className="min-h-screen bg-white dark:bg-zinc-900 text-zinc-900 dark:text-zinc-100">
         <div className="absolute top-4 right-4 z-50">
           <ThemeToggle />
         </div>
 
-        <header className="container mx-auto px-4 py-12 text-center">
-          <div className="inline-flex items-center justify-center p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 mb-4">
-            <Terminal className="w-8 h-8 text-zinc-900 dark:text-zinc-100" />
-          </div>
-          <h1 className="text-4xl font-bold mb-3">
-            ShadeCloud
-          </h1>
-          <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto font-light">
-            Karanlıktan korkma, yıldızlar sadece karanlıkta parlar.
-          </p>
-        </header>
-
-        <main className="container mx-auto px-4 py-8 mb-8">
-          <div className="max-w-4xl mx-auto">
-            {projects.map((project, index) => (
-              <div key={project.title} className="mb-12">
-                <ProjectCard project={project} />
+        <Routes>
+          <Route path="/" element={
+            <>
+              <header className="container mx-auto px-4 py-12 text-center">
+                <div className="inline-flex items-center justify-center p-2 rounded-full bg-zinc-100 dark:bg-zinc-800 mb-4">
+                  <Terminal className="w-8 h-8 text-zinc-900 dark:text-zinc-100" />
+                </div>
+                <h1 className="text-4xl font-bold mb-3">
+                  ShadeCloud
+                </h1>
+                <p className="text-xl text-zinc-600 dark:text-zinc-400 max-w-xl mx-auto font-light">
+                  Karanlıktan korkma, yıldızlar sadece karanlıkta parlar.
+                </p>
                 
-                {/* Önerilen Projeler */}
-                <div className="mt-8 pt-8 border-t border-zinc-200 dark:border-zinc-700">
-                  <h3 className="text-lg font-semibold mb-4">Benzer Projeler</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    {getRandomProjects(project.title).map((suggestedProject) => (
-                      <div
-                        key={suggestedProject.title}
-                        className="p-4 rounded-lg border border-zinc-200 dark:border-zinc-700 hover:bg-zinc-50 dark:hover:bg-zinc-800/50 transition-all duration-300"
-                      >
-                        <h4 className="font-medium mb-2">{suggestedProject.title}</h4>
-                        <p className="text-sm text-zinc-600 dark:text-zinc-400 mb-3 line-clamp-2">
-                          {suggestedProject.description}
-                        </p>
-                        <div className="flex items-center text-sm text-zinc-500 dark:text-zinc-400">
-                          <span className="flex items-center">
-                            Detayları gör
-                            <ChevronRight className="w-4 h-4 ml-1" />
-                          </span>
-                        </div>
-                      </div>
-                    ))}
+                {/* Arama Çubuğu */}
+                <div className="max-w-md mx-auto mt-8">
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-zinc-400" />
+                    <input
+                      type="text"
+                      placeholder="Projelerde ara..."
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      className="w-full pl-10 pr-4 py-2 rounded-lg border border-zinc-200 dark:border-zinc-700 bg-white dark:bg-zinc-800 focus:outline-none focus:ring-2 focus:ring-zinc-500"
+                    />
                   </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </main>
+              </header>
+
+              <main className="container mx-auto px-4 py-8 mb-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+                  {filteredProjects.length > 0 ? (
+                    filteredProjects.map((project) => (
+                      <Link 
+                        key={project.title} 
+                        to={`/project/${project.title.toLowerCase().replace(/\s+/g, '-')}`}
+                        className="transition-transform hover:-translate-y-1"
+                      >
+                        <ProjectCard project={project} isPreview={true} />
+                      </Link>
+                    ))
+                  ) : (
+                    <div className="col-span-full text-center py-12">
+                      <p className="text-zinc-600 dark:text-zinc-400">
+                        Aramanızla eşleşen proje bulunamadı.
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </main>
+            </>
+          } />
+          
+          <Route path="/project/:projectId" element={
+            <main className="container mx-auto px-4 py-8 mb-8">
+              <ProjectDetail projects={projects} />
+            </main>
+          } />
+        </Routes>
 
         <footer className="container mx-auto px-6 py-6 text-center text-zinc-600 dark:text-zinc-400">
           <div className="flex flex-col items-center gap-2">
@@ -94,7 +111,7 @@ function App() {
 
         <MusicPlayer />
       </div>
-    </>
+    </Router>
   );
 }
 
